@@ -110,20 +110,38 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         });
         noteContainer.appendChild(deleteButton);
 
-        //edit button
-        const editButton = document.createElement("button");
-        editButton.textContent = "✏️";
-        editButton.addEventListener("click", function() {
-            edittingNoteIndexesArray.push(index);
+        if(!edittingNote) {
+            //edit button
+            const editButton = document.createElement("button");
+            editButton.textContent = "✏️";
+            editButton.addEventListener("click", function() {
+                edittingNoteIndexesArray.push(index);
 
-            // let newNote = prompt("Enter the new note:");
-            // while(newNote == "") {
-            //     newNote = prompt("Enter the new note:");
-            // }
-            //do I need to recall function after?
-            displayNote(selectedFolderIndex, edittingNoteIndexesArray);
-        });
-        noteContainer.appendChild(editButton);
+                // let newNote = prompt("Enter the new note:");
+                // while(newNote == "") {
+                //     newNote = prompt("Enter the new note:");
+                // }
+                //do I need to recall function after?
+                displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+            });
+            noteContainer.appendChild(editButton);
+        } else {
+            const saveButton = document.createElement("button");
+            saveButton.textContent = "✅";
+            saveButton.addEventListener("click", function() {
+                noteText = note.value;
+                folders[selectedFolderIndex].noteArray[index] = noteText; 
+                edittingNoteIndexes.splice(index,1);
+                // let newNote = prompt("Enter the new note:");
+                // while(newNote == "") {
+                //     newNote = prompt("Enter the new note:");
+                // }
+                //do I need to recall function after?
+                displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+            });
+            noteContainer.appendChild(saveButton);
+        }
+        
 
         notesContainer.appendChild(noteContainer);
     });
