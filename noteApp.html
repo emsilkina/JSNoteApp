@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <script src="noteApp.js"></script> 
+</head>
+<body>
+    <label for="folders">Select a folder:</label>
+    <select name="folders" id="folders">
+        <option value=0>To-do</option>
+        <option value=1>Grocery List</option>
+    </select>
+
+
+    <label for="userInput">Enter note:</label><br>
+    <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br>
+
+    <!-- <label for="titleName">Folder title:</label><br>
+    <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br> -->
+
+    <button id="saveInput">Save</button>
+
+    <label for="newFolderTitle">Create a new folder:</label>
+    <textarea id="newFolderTitle" name="userInput" rows="1" cols="10"></textarea><br>
+    <button id="saveNewFolder">Save New Folder</button>
+
+    <h2 id="noteTitle"></h2>
+    <div id="notes"></div>
+    
+    <p id="noteText"></p>
+
+    
+</body>
+</html>
+
+<!-- put title at the top of list stating wihich folder it is in -->
