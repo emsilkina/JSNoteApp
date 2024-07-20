@@ -10,20 +10,17 @@ function Note () {
 
 let str = "";
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    displayNote(0);
+    displayNote(0, []);
 
     document.getElementById("saveInput").addEventListener("click", function() {
         let selectedFolder = document.getElementById("folders").value;
         let userInput = document.getElementById("userInput").value;
 
-        
 
         folders[selectedFolder].noteArray.push(userInput);
 
-        displayNote(selectedFolder);
+        displayNote(selectedFolder, []);
 
         // str = "";
         // for(let i=0; i<folders[selectedFolder].noteArray.length; i++) {
@@ -57,15 +54,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("folders").addEventListener("change", function() {
         let selectedFolderIndex = document.getElementById("folders").value;
-        displayNote(selectedFolderIndex);
+        displayNote(selectedFolderIndex, []);
     });
 
     // document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
 
 });
 
+let edittingNoteIndexesArray = [];
+
 //display the note for the specific folder
-function displayNote(selectedFolderIndex) {
+function displayNote(selectedFolderIndex, edittingNoteIndexes) {
     let notesContainer = document.getElementById("notes");
     notesContainer.innerHTML = "";
     // if(selectedFolderIndex == null) {
@@ -83,10 +82,23 @@ function displayNote(selectedFolderIndex) {
     //     notes.appendChild(note);
     // }
 
+
     folders[selectedFolderIndex].noteArray.forEach((noteText, index) => {
-        //note text
-        const note = document.createElement("p");
-        note.textContent = "• " + noteText;
+        let noteContainer = document.createElement("div");
+        let edittingNote = edittingNoteIndexes.includes(index);
+        let note = null;
+
+
+        if(!edittingNote) {
+            //note text
+            note = document.createElement("p");
+            note.textContent = "• " + noteText;
+        } else {
+            note = document.createElement("textarea");
+            note.value = noteText;
+            note.rows = "1";
+        }
+        noteContainer.appendChild(note);
         
         //delete button
         const deleteButton = document.createElement("button");
@@ -96,23 +108,24 @@ function displayNote(selectedFolderIndex) {
             //do I need to recall function after?
             displayNote(selectedFolderIndex);
         });
-        note.appendChild(deleteButton);
+        noteContainer.appendChild(deleteButton);
 
         //edit button
         const editButton = document.createElement("button");
         editButton.textContent = "✏️";
         editButton.addEventListener("click", function() {
-            let newNote = prompt("Enter the new note:");
-            while(newNote == "") {
-                newNote = prompt("Enter the new note:");
-            }
-            //do I need to recall function after?
-            displayNote(selectedFolderIndex);
-        });
-        note.appendChild(editButton
-            );
+            edittingNoteIndexesArray.push(index);
 
-        notesContainer.appendChild(note);
+            // let newNote = prompt("Enter the new note:");
+            // while(newNote == "") {
+            //     newNote = prompt("Enter the new note:");
+            // }
+            //do I need to recall function after?
+            displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+        });
+        noteContainer.appendChild(editButton);
+
+        notesContainer.appendChild(noteContainer);
     });
 
     // document.getElementById("noteText").innerHTML = str;
