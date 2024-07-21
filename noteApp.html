@@ -23,11 +23,16 @@
 
     <button class="purpleButton" id="newFolderButton" style="margin-bottom: 40px;">New Folder</button>
 
-    <div id = "newFolderName" class="selectFolder" style="display: none;">
-        <label for="newFolderTitle">Folder name:</label>
-        <textarea id="newFolderTitle" name="userInput" style="margin-bottom: 0px" rows="1" cols="10"></textarea>
+    <div id = "newFolderName" style="display: none;">
+        <div class="selectFolder">
+            <label for="newFolderTitle">Folder name:</label>
+            <textarea id="newFolderTitle" name="userInput" style="margin-bottom: 0px" rows="1" cols="10"></textarea>
+        </div>
+
         <button class="purpleButton" id="addNewFolderButton">Add</button>
+        <button class="purpleButton" id="cancelNewFolderSelection">Cancel</button>
     </div>
+    
 
     
     <!-- <button id="saveNewFolder">Save New Folder</button> -->
@@ -35,7 +40,7 @@
     
 
     <!-- Option for new folder: if users select it, then pop up -->
-    <div class="newNoteArea">
+    <div class="newNoteArea" style="margin-top: 30px;">
         <label for="userInput">What are you thinking of?</label><br>
         <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br>
     </div>

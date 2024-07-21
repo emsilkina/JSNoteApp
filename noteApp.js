@@ -68,9 +68,27 @@ document.addEventListener("DOMContentLoaded", function() {
             //create function that adds an id that matches
 
             document.getElementById("newFolderTitle").value = "";
+
+            const newFolderInput = document.getElementById("newFolderName");
+            newFolderInput.style.display = "none";
+    
+            const newFolderButton = document.getElementById("newFolderButton");
+            newFolderButton.style.display = "block";
+        } else {
+            alert("Folder name already exists!")
         }
 
     });
+
+    document.getElementById("cancelNewFolderSelection").addEventListener("click", function() {
+        const newFolderInput = document.getElementById("newFolderName");
+            newFolderInput.style.display = "none";
+    
+            const newFolderButton = document.getElementById("newFolderButton");
+            newFolderButton.style.display = "block";
+            document.getElementById("newFolderTitle").value = "";
+    });
+
 
     
 
