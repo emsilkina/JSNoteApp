@@ -15,6 +15,19 @@ const noteTextLimit = 100;
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
 
+    document.getElementById("folders").addEventListener("change", function() {
+        let selectedFolderIndex = document.getElementById("folders").value;
+        displayNote(selectedFolderIndex, []);
+    });
+
+    document.getElementById("newFolderButton").addEventListener("click", function() {
+        const newFolderInput = document.getElementById("newFolderName");
+        newFolderInput.style.display = "block";
+
+        const newFolderButton = document.getElementById("newFolderButton");
+        newFolderButton.style.display = "none";
+    });
+
     document.getElementById("saveInput").addEventListener("click", function() {
         let selectedFolder = document.getElementById("folders").value;
         let userInput = document.getElementById("userInput").value;
@@ -59,10 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    document.getElementById("folders").addEventListener("change", function() {
-        let selectedFolderIndex = document.getElementById("folders").value;
-        displayNote(selectedFolderIndex, []);
-    });
+    
 
     // document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
 

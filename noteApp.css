@@ -177,3 +177,9 @@ button:hover {
 .noteArea p {
     font-family: "Arvo";
 }
+
+.newFolderName {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
