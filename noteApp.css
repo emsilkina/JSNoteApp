@@ -1,6 +1,10 @@
 @font-face {
-    font-family: 'ArvoBold'; /* Name you want to use in your CSS */
-    src: url('Arvo-Bold.ttf') format('truetype'); /* Path to your TTF file */
+    font-family: 'ArvoBold';
+    src: url('Arvo-Bold.ttf') format('truetype'); 
+}
+
+body {
+    background-color: #C5B0E6;
 }
 
 select {
@@ -11,14 +15,23 @@ select {
     border-radius: 18px;
   }
 
-.note-container {
+.noteContainer {
     display: flex;
-    justify-content: space-between; /* Distributes space between note text and buttons */
-    align-items: center; /* Vertically center the items */
-    margin-bottom: 10px; /* Add space between notes */
-    border: 1px solid #ddd; /* Optional: add a border to separate notes */
-    padding: 10px; /* Optional: add padding for better spacing */
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 0px; 
+    margin-top: 0px; 
+    padding: 2px;
 }
+
+.noteContainer p {
+    margin: 0;
+}
+
+.noteContainer button {
+    margin: 0;
+}
+
 
 button {
     background: #f0f0f0; /* Optional: button background */
@@ -58,4 +71,14 @@ button:hover {
 
 .icon {
     font-size: 60;
+    padding: 10px;
+}
+
+.bulletPoint{
+    margin-right: 10px; 
+    font-size: 20px;
+}
+
+.note-text {
+    flex-grow: 1; 
 }

@@ -10,6 +10,8 @@ function Note () {
 
 let str = "";
 
+const noteTextLimit = 100;
+
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
 
@@ -17,8 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
         let selectedFolder = document.getElementById("folders").value;
         let userInput = document.getElementById("userInput").value;
 
-
-        folders[selectedFolder].noteArray.push(userInput);
+        if(userInput.length <= noteTextLimit) {
+            folders[selectedFolder].noteArray.push(userInput);
+        } else {
+            alert("Error: the new note input is too large. Please try again!")
+        }
+        
 
         displayNote(selectedFolder, []);
 
@@ -88,11 +94,17 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         let edittingNote = edittingNoteIndexes.includes(index);
         let note = null;
 
+        const bulletPoint = document.createElement("p");
+        bulletPoint.textContent = "• ";
+        bulletPoint.classList.add("bulletPoint");
+        noteContainer.appendChild(bulletPoint);
+        noteContainer.classList.add("noteContainer");
 
         if(!edittingNote) {
             //note text
             note = document.createElement("p");
-            note.textContent = "• " + noteText;
+            note.textContent = noteText;
+            note.classList.add("note-text");
         } else {
             note = document.createElement("textarea");
             note.value = noteText;
@@ -105,6 +117,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "🗑️";
         deleteButton.addEventListener("click", function() {
+            
             folders[selectedFolderIndex].noteArray.splice(index, 1);
             //do I need to recall function after?
             displayNote(selectedFolderIndex);
@@ -141,6 +154,19 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
                 displayNote(selectedFolderIndex, edittingNoteIndexesArray);
             });
             noteContainer.appendChild(saveButton);
+
+            const dontsaveButton = document.createElement("button");
+            dontsaveButton.textContent = "🚫";
+            dontsaveButton.addEventListener("click", function() {
+                edittingNoteIndexes.splice(index,1);
+                // let newNote = prompt("Enter the new note:");
+                // while(newNote == "") {
+                //     newNote = prompt("Enter the new note:");
+                // }
+                //do I need to recall function after?
+                displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+            });
+            noteContainer.appendChild(dontsaveButton);
         }
         
 
