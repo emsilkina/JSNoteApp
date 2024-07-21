@@ -9,21 +9,25 @@
 </head>
 <body>
     <div class="titleHeaderContainer">
-        <h1 class="title">SloNotes</h1>
+        <h1 class="title">LaZNotes</h1>
         <h1 class="icon">🦥</h1>
     </div>
 
-    <label for="folders">Select a folder:</label>
-    <select name="folders" id="folders">
-        <option value=0>To-do</option>
-        <option value=1>Grocery List</option>
-    </select>
+    <div class="selectFolder">
+        <label for="folders">Select a folder:</label>
+        <select name="folders" id="folders">
+            <option value=0>To-do</option>
+            <option value=1>Grocery List</option>
+        </select>
+    </div>
+    
 
     <!-- Option for new folder: if users select it, then pop up -->
-
-    <label for="userInput">Enter note:</label><br>
-    <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br>
-
+    <div class="newNoteArea">
+        <label for="userInput">What are you thinking of?</label><br>
+        <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br>
+    </div>
+    
     <!-- <label for="titleName">Folder title:</label><br>
     <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br> -->
 

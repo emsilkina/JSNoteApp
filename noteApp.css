@@ -3,8 +3,17 @@
     src: url('Arvo-Bold.ttf') format('truetype'); 
 }
 
+@font-face {
+    font-family: 'Arvo';
+    src: url('Arvo-Regular.ttf') format('truetype'); 
+}
+
 body {
     background-color: #C5B0E6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 select {
@@ -34,11 +43,11 @@ select {
 
 
 button {
-    background: #f0f0f0; /* Optional: button background */
-    border: 1px solid #ccc; /* Optional: button border */
-    border-radius: 4px; /* Optional: rounded corners for buttons */
-    padding: 5px 10px; /* Optional: button padding */
-    cursor: pointer; /* Pointer cursor on hover */
+    background: #f0f0f0; 
+    border: 1px #ccc; 
+    border-radius: 4px; 
+    padding: 5px; 
+    cursor: pointer; 
 }
 
 button:hover {
@@ -50,7 +59,7 @@ button:hover {
     border: none; 
     resize: none; 
     outline: none; 
-    padding: 0; /* Removes default padding */
+    padding: 0;
     font: inherit; 
     color: #000; 
     overflow: hidden; 
@@ -77,8 +86,44 @@ button:hover {
 .bulletPoint{
     margin-right: 10px; 
     font-size: 20px;
+    padding: 5px;
 }
 
 .note-text {
     flex-grow: 1; 
+}
+
+.selectFolder {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.selectFolder label {
+    color: #ffffff;
+    font-family: "Arvo", serif;
+    font-size: 25;
+    margin-right: 10px;
+}
+
+.newNoteArea {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newNoteArea label {
+    color: #ffffff;
+    font-family: "Arvo", serif;
+    font-size: 25;
+    align-items: center;
+    display: flex;
+}
+
+.newNoteArea textarea {
+    border-radius: 18px;
+    border-color: #6100FF;
+    border-width: 4px;
+    resize: none; 
+    padding: 15px 10px 10px 10px;
 }
