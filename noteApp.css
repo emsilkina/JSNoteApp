@@ -105,6 +105,7 @@ button:hover {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    flex-direction: row;
 }
 
 .selectFolder label {
@@ -181,5 +182,25 @@ button:hover {
 .newFolderName {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.newFolderName label {
+    margin-right: 10px;
+}
+
+.newFolderName textarea {
+    border-radius: 18px;
+    border-color: #6100FF;
+    border-width: 4px;
+    height: 20px;
+    width: 180px;
+    resize: none;
+    padding-left: 15px;
+    padding-top: 8px;
+    vertical-align: middle; /* Ensures alignment */
+}
+
+.newFolderName button {
+    margin-left: 10px;
 }

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    document.getElementById("saveNewFolder").addEventListener("click", function() {
+    document.getElementById("addNewFolderButton").addEventListener("click", function() {
         let newFolderTitle = document.getElementById("newFolderTitle").value;
 
         if (!folders.find(folder => folder.title === newFolderTitle)) {
