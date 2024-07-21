@@ -97,6 +97,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             note = document.createElement("textarea");
             note.value = noteText;
             note.rows = "1";
+            note.classList.add("note-textarea");
         }
         noteContainer.appendChild(note);
         

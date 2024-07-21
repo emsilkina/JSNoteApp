@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'ArvoBold'; /* Name you want to use in your CSS */
+    src: url('Arvo-Bold.ttf') format('truetype'); /* Path to your TTF file */
+}
+
+select {
+    color:            #9564E5;
+    background-color: #ffffff;
+    border-width:     4px;
+    border-color:     #6100FF;
+    border-radius: 18px;
+  }
+
+.note-container {
+    display: flex;
+    justify-content: space-between; /* Distributes space between note text and buttons */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px; /* Add space between notes */
+    border: 1px solid #ddd; /* Optional: add a border to separate notes */
+    padding: 10px; /* Optional: add padding for better spacing */
+}
+
+button {
+    background: #f0f0f0; /* Optional: button background */
+    border: 1px solid #ccc; /* Optional: button border */
+    border-radius: 4px; /* Optional: rounded corners for buttons */
+    padding: 5px 10px; /* Optional: button padding */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background: #e0e0e0; 
+}
+
+.note-textarea {
+    background: transparent; 
+    border: none; 
+    resize: none; 
+    outline: none; 
+    padding: 0; /* Removes default padding */
+    font: inherit; 
+    color: #000; 
+    overflow: hidden; 
+    min-height: 20px; 
+    line-height: 1.5; 
+}
+
+.titleHeaderContainer {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.title {
+    font-family: 'ArvoBold', serif;
+    font-size: 40;
+}
+
+.icon {
+    font-size: 60;
+}

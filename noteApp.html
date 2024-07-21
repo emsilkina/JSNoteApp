@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note App</title>
     <script src="noteApp.js"></script> 
+    <link rel="stylesheet" href="noteApp.css">
 </head>
 <body>
+    <div class="titleHeaderContainer">
+        <h1 class="title">SloNotes</h1>
+        <h1 id="icon">🦥</h1>
+    </div>
+
     <label for="folders">Select a folder:</label>
     <select name="folders" id="folders">
         <option value=0>To-do</option>
         <option value=1>Grocery List</option>
     </select>
 
+    <!-- Option for new folder: if users select it, then pop up -->
 
     <label for="userInput">Enter note:</label><br>
     <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br>
