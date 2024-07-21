@@ -14,12 +14,19 @@
     </div>
 
     <div class="selectFolder">
-        <label for="folders">Select a folder:</label>
+        <label for="folders">Select a folder...</label>
         <select name="folders" id="folders">
             <option value=0>To-do</option>
             <option value=1>Grocery List</option>
         </select>
     </div>
+
+    <div class="selectFolder">
+        <label for="newFolderTitle">Folder name:</label>
+        <textarea id="newFolderTitle" name="userInput" rows="1" cols="10"></textarea><br>
+    </div>
+    <!-- <button id="saveNewFolder">Save New Folder</button> -->
+    
     
 
     <!-- Option for new folder: if users select it, then pop up -->
@@ -31,14 +38,14 @@
     <!-- <label for="titleName">Folder title:</label><br>
     <textarea id="userInput" name="userInput" rows="4" cols="50"></textarea><br> -->
 
-    <button id="saveInput">Save</button>
+    <button class="purpleButton" id="saveInput">Save</button>
 
-    <label for="newFolderTitle">Create a new folder:</label>
-    <textarea id="newFolderTitle" name="userInput" rows="1" cols="10"></textarea><br>
-    <button id="saveNewFolder">Save New Folder</button>
-
-    <h2 id="noteTitle"></h2>
-    <div id="notes"></div>
+    
+    <div class="noteArea">
+        <h2 id="noteTitle"></h2>
+        <div id="notes"></div>
+    </div>
+    
     
     <p id="noteText"></p>
 

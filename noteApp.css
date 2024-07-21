@@ -22,14 +22,21 @@ select {
     border-width:     4px;
     border-color:     #6100FF;
     border-radius: 18px;
-  }
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
 
 .noteContainer {
     display: flex;
-    justify-content: space-between; 
+    /* justify-content: space-between;  */
     align-items: center; 
     margin-bottom: 0px; 
     margin-top: 0px; 
+    margin-left: 15px; 
+    margin-right: 15px; 
+    margin-bottom: 15px; 
     padding: 2px;
 }
 
@@ -65,6 +72,7 @@ button:hover {
     overflow: hidden; 
     min-height: 20px; 
     line-height: 1.5; 
+    font-family: "Arvo", serif;
 }
 
 .titleHeaderContainer {
@@ -126,4 +134,46 @@ button:hover {
     border-width: 4px;
     resize: none; 
     padding: 15px 10px 10px 10px;
+}
+
+.purpleButton {
+    background-color: #6100FF;
+    font-family: "Arvo", serif;
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 18px;
+    width: 150px;
+}
+
+.selectFolder textarea {
+    border-radius: 18px;
+    border-color: #6100FF;
+    border-width: 4px;
+    height: 20px;
+    width: 180px;
+    resize: none; 
+    padding-left: 15px;
+    padding-top: 8px;
+}
+
+.noteArea {
+    margin-top: 30px;
+    border-style: solid;
+    border-color: #6100FF;
+    border-width: 4px;
+    border-radius: 18px;
+    border-width: 8px;
+    width: 450px;
+    min-height: 300px;
+    background-color: #ffffff;
+}
+
+.noteArea h2 {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: "ArvoBold";
+}
+
+.noteArea p {
+    font-family: "Arvo";
 }

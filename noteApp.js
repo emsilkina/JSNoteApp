@@ -24,8 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             alert("Error: the new note input is too large. Please try again!")
         }
-        
 
+        document.getElementById("userInput").value = "";
+        
         displayNote(selectedFolder, []);
 
         // str = "";
@@ -120,7 +121,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             
             folders[selectedFolderIndex].noteArray.splice(index, 1);
             //do I need to recall function after?
-            displayNote(selectedFolderIndex);
+            displayNote(selectedFolderIndex, edittingNoteIndexesArray);
         });
         noteContainer.appendChild(deleteButton);
 
