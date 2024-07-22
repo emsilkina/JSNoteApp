@@ -10,7 +10,7 @@ function Note () {
 
 let str = "";
 
-const noteTextLimit = 100;
+const noteTextLimit = 80;
 
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
@@ -32,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function() {
         let selectedFolder = document.getElementById("folders").value;
         let userInput = document.getElementById("userInput").value;
 
-        if(userInput.length <= noteTextLimit) {
+        if(userInput.length == 0) {
+            alert("Error: the new note input empty. Please try again!")
+        } else if(userInput.length <= noteTextLimit) {
             folders[selectedFolder].noteArray.push(userInput);
         } else {
             alert("Error: the new note input is too large. Please try again!")
@@ -142,6 +144,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             note = document.createElement("textarea");
             note.value = noteText;
             note.rows = "1";
+            // note.cols = "40";
             note.classList.add("note-textarea");
         }
         noteContainer.appendChild(note);
@@ -177,14 +180,14 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             saveButton.textContent = "✅";
             saveButton.addEventListener("click", function() {
                 noteText = note.value;
-                folders[selectedFolderIndex].noteArray[index] = noteText; 
-                edittingNoteIndexes.splice(index,1);
-                // let newNote = prompt("Enter the new note:");
-                // while(newNote == "") {
-                //     newNote = prompt("Enter the new note:");
-                // }
-                //do I need to recall function after?
-                displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+                if(noteText.length <= noteTextLimit) {
+                    folders[selectedFolderIndex].noteArray[index] = noteText; 
+                    edittingNoteIndexes.splice(index,1);
+                    displayNote(selectedFolderIndex, edittingNoteIndexesArray);
+                } else {
+                    alert("Error: the new note input is too large. Please try again!")
+                }
+                
             });
             noteContainer.appendChild(saveButton);
 

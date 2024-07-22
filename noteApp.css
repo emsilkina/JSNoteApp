@@ -65,7 +65,7 @@ button:hover {
 .note-textarea {
     background: transparent; 
     border: none; 
-    resize: none; 
+    /* resize: none;  */
     outline: none; 
     padding: 0;
     font: inherit; 
@@ -74,6 +74,10 @@ button:hover {
     min-height: 20px; 
     line-height: 1.5; 
     font-family: "Arvo", serif;
+    width: 100%;
+    max-width: 800px;
+    /* height: 80px; */
+    margin-right: 10px;
 }
 
 .titleHeaderContainer {
@@ -167,7 +171,7 @@ button:hover {
     border-width: 4px;
     border-radius: 18px;
     border-width: 4px;
-    width: 450px;
+    min-width: 450px;
     min-height: 300px;
     background-color: #ffffff;
 }
