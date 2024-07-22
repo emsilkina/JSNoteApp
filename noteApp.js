@@ -4,9 +4,6 @@ function Note () {
     this.noteArray = [];
 }
 
-//push Note into folder? 
-
-// let todoNote = new Note();
 
 let str = "";
 
@@ -44,14 +41,6 @@ document.addEventListener("DOMContentLoaded", function() {
         
         displayNote(selectedFolder, []);
 
-        // str = "";
-        // for(let i=0; i<folders[selectedFolder].noteArray.length; i++) {
-        //     str += folders[selectedFolder].noteArray[i] + "<br>";
-        // }
-
-        // document.getElementById("noteText").innerHTML = str;
-        // document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
-
     });
 
     document.getElementById("addNewFolderButton").addEventListener("click", function() {
@@ -61,10 +50,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!folders.find(folder => folder.title === newFolderTitle)) {
                 let newFolderNote = new Note();
                 newFolderNote.title = newFolderTitle;
-                folders.push(newFolderNote); //adds the note to the array of folders
+                folders.push(newFolderNote); 
     
-                let selectFolders = document.getElementById("folders"); //locates the folder dropdown
-                let option = document.createElement("option"); //creates a new option
+                let selectFolders = document.getElementById("folders");
+                let option = document.createElement("option"); 
                 option.text = newFolderTitle;
                 option.value = folders.length - 1;
                 selectFolders.appendChild(option); 
@@ -95,11 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("newFolderTitle").value = "";
     });
 
-
-    
-
-    // document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
-
 });
 
 let edittingNoteIndexesArray = [];
@@ -108,21 +92,6 @@ let edittingNoteIndexesArray = [];
 function displayNote(selectedFolderIndex, edittingNoteIndexes) {
     let notesContainer = document.getElementById("notes");
     notesContainer.innerHTML = "";
-    // if(selectedFolderIndex == null) {
-    //     selectedFolderIndex = 0;
-    // }
-
-    //search element by id/querry
-
-    // let str = "";
-    // for (let i = 0; i < folders[selectedFolderIndex].noteArray.length; i++) {
-    //     //str += folders[selectedFolderIndex].noteArray[i] + "<br>";
-    //     const note = document.createElement("p");
-    //     const text = document.createTextNode(folders[selectedFolderIndex].noteArray[i]);
-    //     note.appendChild(text);
-    //     notes.appendChild(note);
-    // }
-
 
     folders[selectedFolderIndex].noteArray.forEach((noteText, index) => {
         let noteContainer = document.createElement("div");
@@ -141,10 +110,10 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             note.textContent = noteText;
             note.classList.add("note-text");
         } else {
+            //note text area
             note = document.createElement("textarea");
             note.value = noteText;
             note.rows = "1";
-            // note.cols = "40";
             note.classList.add("note-textarea");
         }
         noteContainer.appendChild(note);
@@ -155,7 +124,6 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         deleteButton.addEventListener("click", function() {
             
             folders[selectedFolderIndex].noteArray.splice(index, 1);
-            //do I need to recall function after?
             displayNote(selectedFolderIndex, edittingNoteIndexesArray);
         });
         noteContainer.appendChild(deleteButton);
@@ -166,16 +134,11 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             editButton.textContent = "✏️";
             editButton.addEventListener("click", function() {
                 edittingNoteIndexesArray.push(index);
-
-                // let newNote = prompt("Enter the new note:");
-                // while(newNote == "") {
-                //     newNote = prompt("Enter the new note:");
-                // }
-                //do I need to recall function after?
                 displayNote(selectedFolderIndex, edittingNoteIndexesArray);
             });
             noteContainer.appendChild(editButton);
         } else {
+            //save button
             const saveButton = document.createElement("button");
             saveButton.textContent = "✅";
             saveButton.addEventListener("click", function() {
@@ -191,15 +154,11 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             });
             noteContainer.appendChild(saveButton);
 
+            //don't save button
             const dontsaveButton = document.createElement("button");
             dontsaveButton.textContent = "🚫";
             dontsaveButton.addEventListener("click", function() {
                 edittingNoteIndexes.splice(index,1);
-                // let newNote = prompt("Enter the new note:");
-                // while(newNote == "") {
-                //     newNote = prompt("Enter the new note:");
-                // }
-                //do I need to recall function after?
                 displayNote(selectedFolderIndex, edittingNoteIndexesArray);
             });
             noteContainer.appendChild(dontsaveButton);
@@ -209,9 +168,5 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         notesContainer.appendChild(noteContainer);
     });
 
-    // document.getElementById("noteText").innerHTML = str;
     document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
-
-    
-    let selectFolders = document.getElementById("noteText");
 }
