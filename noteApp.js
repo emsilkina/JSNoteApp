@@ -55,27 +55,31 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("addNewFolderButton").addEventListener("click", function() {
         let newFolderTitle = document.getElementById("newFolderTitle").value;
 
-        if (!folders.find(folder => folder.title === newFolderTitle)) {
-            let newFolderNote = new Note();
-            newFolderNote.title = newFolderTitle;
-            folders.push(newFolderNote); //adds the note to the array of folders
-
-            let selectFolders = document.getElementById("folders"); //locates the folder dropdown
-            let option = document.createElement("option"); //creates a new option
-            option.text = newFolderTitle;
-            option.value = folders.length - 1;
-            selectFolders.appendChild(option); 
-            //create function that adds an id that matches
-
-            document.getElementById("newFolderTitle").value = "";
-
-            const newFolderInput = document.getElementById("newFolderName");
-            newFolderInput.style.display = "none";
+        if(newFolderTitle.length > 0) {
+            if (!folders.find(folder => folder.title === newFolderTitle)) {
+                let newFolderNote = new Note();
+                newFolderNote.title = newFolderTitle;
+                folders.push(newFolderNote); //adds the note to the array of folders
     
-            const newFolderButton = document.getElementById("newFolderButton");
-            newFolderButton.style.display = "block";
+                let selectFolders = document.getElementById("folders"); //locates the folder dropdown
+                let option = document.createElement("option"); //creates a new option
+                option.text = newFolderTitle;
+                option.value = folders.length - 1;
+                selectFolders.appendChild(option); 
+                //create function that adds an id that matches
+    
+                document.getElementById("newFolderTitle").value = "";
+    
+                const newFolderInput = document.getElementById("newFolderName");
+                newFolderInput.style.display = "none";
+        
+                const newFolderButton = document.getElementById("newFolderButton");
+                newFolderButton.style.display = "block";
+            } else {
+                alert("Folder name already exists!")
+            }
         } else {
-            alert("Folder name already exists!")
+            alert("Folder name can't be empty!")
         }
 
     });
