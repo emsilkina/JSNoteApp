@@ -31,7 +31,6 @@ select {
 
 .noteContainer {
     display: flex;
-    /* justify-content: space-between;  */
     align-items: center; 
     margin-bottom: 0px; 
     margin-top: 0px; 
@@ -60,6 +59,13 @@ button {
 
 button:hover {
     background: #e0e0e0; 
+}
+
+
+.buttonContainer {
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 30px;
 }
 
 .note-textarea {
@@ -148,7 +154,9 @@ button:hover {
     color: #ffffff;
     font-size: 15px;
     border-radius: 18px;
-    min-width: 120px;
+    /* min-width: 120px; */
+    width: 160px;
+    height: 30px;
     padding-left: 20px;
     padding-right: 20px;
 }

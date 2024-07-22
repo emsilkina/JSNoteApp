@@ -21,8 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const newFolderInput = document.getElementById("newFolderName");
         newFolderInput.style.display = "block";
 
-        const newFolderButton = document.getElementById("newFolderButton");
-        newFolderButton.style.display = "none";
+        // const changeNameButton = document.getElementById("changeNameButton");
+        // const newFolderButton = document.getElementById("newFolderButton");
+        // changeNameButton.style.display = "none";
+        // newFolderButton.style.display = "none";
+    });
+
+    document.getElementById("changeNameButton").addEventListener("click", function() {
+        let newFolderTitle = document.getElementById("newFolderTitle").value;
+        const newFolderInput = document.getElementById("renameFolder");
+        newFolderInput.style.display = "block";
+
+
     });
 
     document.getElementById("saveInput").addEventListener("click", function() {
@@ -65,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 newFolderInput.style.display = "none";
         
                 const newFolderButton = document.getElementById("newFolderButton");
+                const changeNameButton = document.getElementById("changeNameButton");
                 newFolderButton.style.display = "block";
+                changeNameButton.style.display = "block";
             } else {
                 alert("Folder name already exists!")
             }
@@ -75,12 +87,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
+    
     document.getElementById("cancelNewFolderSelection").addEventListener("click", function() {
-        const newFolderInput = document.getElementById("newFolderName");
+            const newFolderInput = document.getElementById("newFolderName");
             newFolderInput.style.display = "none";
     
             const newFolderButton = document.getElementById("newFolderButton");
+            const changeNameButton = document.getElementById("changeNameButton");
             newFolderButton.style.display = "block";
+            changeNameButton.style.display = "block";
             document.getElementById("newFolderTitle").value = "";
     });
 
