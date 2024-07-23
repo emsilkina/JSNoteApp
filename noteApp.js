@@ -4,7 +4,7 @@ function Note () {
     this.noteArray = [];
 }
 
-
+//ADD BUTTON TO DELETE THE FOLDER!
 let str = "";
 
 const noteTextLimit = 80;
