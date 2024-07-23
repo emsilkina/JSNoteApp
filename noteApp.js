@@ -28,11 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById("changeNameButton").addEventListener("click", function() {
+        const folderElement = document.getElementById("folders");
         let newFolderTitle = document.getElementById("newFolderTitle").value;
         const newFolderInput = document.getElementById("renameFolder");
         newFolderInput.style.display = "block";
-
-
+        const newFolderTextInput = document.getElementById("renameFolderTitle");
+        newFolderTextInput.value = folderElement.options[folderElement.selectedIndex].text;
     });
 
     document.getElementById("saveInput").addEventListener("click", function() {
