@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             folderElement.options[folderElement.selectedIndex].text = newFolderName;
             dontDisplayRenameFolderInput();
+            const noteTitle = document.getElementById("noteTitle");
+            noteTitle.textContent = newFolderName;
         }
 
         //alert user if the name is the same as the old name
