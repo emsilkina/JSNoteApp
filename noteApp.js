@@ -41,14 +41,29 @@ document.addEventListener("DOMContentLoaded", function() {
         const newFolderNameTextInput = document.getElementById("renameFolderTitle");
         const newFolderName = newFolderNameTextInput.value;
 
-        if(originalFolderName == newFolderName) {
-            alert("The new folder name is the same as the old one. Pick a new name!");
+        if(newFolderName.length > 0 && newFolderName.length <= folderNameTextLimit) {
+            if (!folders.find(folder => folder.title === newFolderTitle)) {
+                if(originalFolderName == newFolderName) {
+                    alert("The folder name you entered is the same as the old one.");
+                } else {
+                    folderElement.options[folderElement.selectedIndex].text = newFolderName;
+                    dontDisplayRenameFolderInput();
+                    const noteTitle = document.getElementById("noteTitle");
+                    noteTitle.textContent = newFolderName;
+                }
+            } else {
+                alert("Folder name already exists!")
+            }
         } else {
-            folderElement.options[folderElement.selectedIndex].text = newFolderName;
-            dontDisplayRenameFolderInput();
-            const noteTitle = document.getElementById("noteTitle");
-            noteTitle.textContent = newFolderName;
+            if(newFolderName.length == 0) {
+                alert("Folder name can't be empty!")
+            } else {
+                alert("Folder name has to be less than 20 characters! Please shorten it.")
+            }
         }
+
+
+        
 
         //alert user if the name is the same as the old name
     });
@@ -160,8 +175,8 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         //delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "🗑️";
+        deleteButton.classList.add("icon");
         deleteButton.addEventListener("click", function() {
-            
             folders[selectedFolderIndex].noteArray.splice(index, 1);
             displayNote(selectedFolderIndex, edittingNoteIndexesArray);
         });
@@ -171,6 +186,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             //edit button
             const editButton = document.createElement("button");
             editButton.textContent = "✏️";
+            editButton.classList.add("icon");
             editButton.addEventListener("click", function() {
                 edittingNoteIndexesArray.push(index);
                 displayNote(selectedFolderIndex, edittingNoteIndexesArray);
@@ -180,6 +196,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             //save button
             const saveButton = document.createElement("button");
             saveButton.textContent = "✅";
+            saveButton.classList.add("icon");
             saveButton.addEventListener("click", function() {
                 noteText = note.value;
                 if(noteText.length <= noteTextLimit) {
@@ -194,13 +211,14 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
             noteContainer.appendChild(saveButton);
 
             //don't save button
-            const dontsaveButton = document.createElement("button");
-            dontsaveButton.textContent = "🚫";
-            dontsaveButton.addEventListener("click", function() {
+            const dontSaveButton = document.createElement("button");
+            dontSaveButton.textContent = "🚫";
+            dontSaveButton.classList.add("icon");
+            dontSaveButton.addEventListener("click", function() {
                 edittingNoteIndexes.splice(index,1);
                 displayNote(selectedFolderIndex, edittingNoteIndexesArray);
             });
-            noteContainer.appendChild(dontsaveButton);
+            noteContainer.appendChild(dontSaveButton);
         }
         
 

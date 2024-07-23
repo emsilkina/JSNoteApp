@@ -219,3 +219,8 @@ button:hover {
 .newFolderName button {
     margin-left: 10px;
 }
+
+.icon {
+    background-color: transparent;
+    padding: 5px;
+}
