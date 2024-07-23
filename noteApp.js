@@ -8,6 +8,7 @@ function Note () {
 let str = "";
 
 const noteTextLimit = 80;
+const folderNameTextLimit = 20;
 
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("newFolderButton").addEventListener("click", function() {
         displayNewFolderInput();
-
+        dontDisplayRenameFolderInput();
         // const changeNameButton = document.getElementById("changeNameButton");
         // const newFolderButton = document.getElementById("newFolderButton");
         // changeNameButton.style.display = "none";
@@ -27,14 +28,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById("changeNameButton").addEventListener("click", function() {
-        const folderElement = document.getElementById("folders");
         displayRenameFolderInput();
-        const newFolderTextInput = document.getElementById("renameFolderTitle");
-        newFolderTextInput.value = folderElement.options[folderElement.selectedIndex].text;
+        dontDisplayNewFolderInput();
+        const folderElement = document.getElementById("folders");
+        const newFolderNameTextInput = document.getElementById("renameFolderTitle");
+        newFolderNameTextInput.value = folderElement.options[folderElement.selectedIndex].text;
     });
 
     document.getElementById("acceptNewFolderName").addEventListener("click", function() {
-        dontDisplayRenameFolderInput();
+        const folderElement = document.getElementById("folders");
+        const originalFolderName = folderElement.options[folderElement.selectedIndex].text;
+        const newFolderNameTextInput = document.getElementById("renameFolderTitle");
+        const newFolderName = newFolderNameTextInput.value;
+
+        if(originalFolderName == newFolderName) {
+            alert("The new folder name is the same as the old one. Pick a new name!");
+        } else {
+            folderElement.options[folderElement.selectedIndex].text = newFolderName;
+            dontDisplayRenameFolderInput();
+        }
+
         //alert user if the name is the same as the old name
     });
 
@@ -65,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("addNewFolderButton").addEventListener("click", function() {
         let newFolderTitle = document.getElementById("newFolderTitle").value;
 
-        if(newFolderTitle.length > 0) {
+        if(newFolderTitle.length > 0 && newFolderTitle.length <= folderNameTextLimit) {
             if (!folders.find(folder => folder.title === newFolderTitle)) {
                 let newFolderNote = new Note();
                 newFolderNote.title = newFolderTitle;
@@ -90,15 +103,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Folder name already exists!")
             }
         } else {
-            alert("Folder name can't be empty!")
+            if(newFolderTitle.length == 0) {
+                alert("Folder name can't be empty!")
+            } else {
+                alert("Folder name has to be less than 20 characters! Please shorten it.")
+            }
         }
-
     });
 
     
     document.getElementById("cancelNewFolderSelection").addEventListener("click", function() {
             dontDisplayNewFolderInput();
-    
             const newFolderButton = document.getElementById("newFolderButton");
             const changeNameButton = document.getElementById("changeNameButton");
             newFolderButton.style.display = "block";
