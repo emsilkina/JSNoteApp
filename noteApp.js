@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById("newFolderButton").addEventListener("click", function() {
-        const newFolderInput = document.getElementById("newFolderName");
-        newFolderInput.style.display = "block";
+        displayNewFolderInput();
 
         // const changeNameButton = document.getElementById("changeNameButton");
         // const newFolderButton = document.getElementById("newFolderButton");
@@ -29,12 +28,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("changeNameButton").addEventListener("click", function() {
         const folderElement = document.getElementById("folders");
-        let newFolderTitle = document.getElementById("newFolderTitle").value;
-        const newFolderInput = document.getElementById("renameFolder");
-        newFolderInput.style.display = "block";
+        displayRenameFolderInput();
         const newFolderTextInput = document.getElementById("renameFolderTitle");
         newFolderTextInput.value = folderElement.options[folderElement.selectedIndex].text;
     });
+
+    document.getElementById("acceptNewFolderName").addEventListener("click", function() {
+        dontDisplayRenameFolderInput();
+        //alert user if the name is the same as the old name
+    });
+
+    document.getElementById("dontAcceptNewFolderName").addEventListener("click", function() {
+        dontDisplayRenameFolderInput();
+        //alert user if the name is the same as the old name
+    });
+
 
     document.getElementById("saveInput").addEventListener("click", function() {
         let selectedFolder = document.getElementById("folders").value;
@@ -68,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 option.text = newFolderTitle;
                 option.value = folders.length - 1;
                 selectFolders.appendChild(option); 
-                //create function that adds an id that matches
     
                 document.getElementById("newFolderTitle").value = "";
     
@@ -90,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     document.getElementById("cancelNewFolderSelection").addEventListener("click", function() {
-            const newFolderInput = document.getElementById("newFolderName");
-            newFolderInput.style.display = "none";
+            dontDisplayNewFolderInput();
     
             const newFolderButton = document.getElementById("newFolderButton");
             const changeNameButton = document.getElementById("changeNameButton");
@@ -185,4 +191,25 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
     });
 
     document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
+}
+
+function displayNewFolderInput() {
+    const newFolderInput = document.getElementById("newFolderName");
+    newFolderInput.style.display = "block";
+}
+
+function dontDisplayNewFolderInput() {
+    const newFolderInput = document.getElementById("newFolderName");
+    newFolderInput.style.display = "none";
+}
+
+function displayRenameFolderInput() {
+    const renameFolderInput = document.getElementById("renameFolder");
+    renameFolderInput.style.display = "block";
+}
+
+
+function dontDisplayRenameFolderInput() {
+    const renameFolderInput = document.getElementById("renameFolder");
+    renameFolderInput.style.display = "none";
 }
