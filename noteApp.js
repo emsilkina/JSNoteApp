@@ -228,23 +228,41 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
     document.getElementById("noteTitle").innerHTML = document.getElementById("folders").options[selectedFolderIndex].text;
 }
 
+
+
 function displayNewFolderInput() {
     const newFolderInput = document.getElementById("newFolderName");
     newFolderInput.style.display = "block";
+
+    const newFolderButton = document.getElementById("newFolderButton");
+    newFolderButton.classList.remove("purpleButton");
+    newFolderButton.classList.add("purpleButtonSelected");
 }
 
 function dontDisplayNewFolderInput() {
     const newFolderInput = document.getElementById("newFolderName");
     newFolderInput.style.display = "none";
+
+    const newFolderButton = document.getElementById("newFolderButton");
+    newFolderButton.classList.remove("purpleButtonSelected");
+    newFolderButton.classList.add("purpleButton");
 }
 
 function displayRenameFolderInput() {
     const renameFolderInput = document.getElementById("renameFolder");
     renameFolderInput.style.display = "block";
+
+    const renameFolderButton = document.getElementById("changeNameButton");
+    renameFolderButton.classList.remove("purpleButton");
+    renameFolderButton.classList.add("purpleButtonSelected");
 }
 
 
 function dontDisplayRenameFolderInput() {
     const renameFolderInput = document.getElementById("renameFolder");
     renameFolderInput.style.display = "none";
+
+    const renameFolderButton = document.getElementById("changeNameButton");
+    renameFolderButton.classList.remove("purpleButtonSelected");
+    renameFolderButton.classList.add("purpleButton");
 }
