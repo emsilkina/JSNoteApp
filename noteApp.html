@@ -10,50 +10,53 @@
 <body>
     <div class="titleHeaderContainer">
         <h1 class="title">LaZNotes</h1>
-        <h1 class="icon">🦥</h1>
+        <h1 class="slothIcon">🦥</h1>
     </div>
 
-    <div class="selectFolder">
-        <label for="folders">Select a folder...</label>
-        <select name="folders" id="folders" style="color: #6100FF; font-family: 'Arvo'; border-color: #8F68AE;">
-            <option value=0>To-do</option>
-            <option value=1>Grocery List</option>
-        </select>
-    </div>
-
-    <div class="buttonContainer" style="margin-top: 20px">
-        <button class="purpleButton" id="newFolderButton">New Folder</button>
-        <button class="purpleButton" id="changeNameButton">Rename Folder</button>
-    </div>
-
-    <div id = "newFolderName" style="display: none; background-color: #ffffff; padding: 15px; border-radius: 18px; border-color: #ffffff; margin-bottom: 30px;">
+    <div class="edittingModeSectionContainer">
         <div class="selectFolder">
-            <label for="newFolderTitle" style="color: #6100FF; margin-left: 12px">Folder name:</label>
-            <!-- <textarea id="newFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo';" rows="1" cols="10"></textarea> -->
-            <input id="newFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo'; border-radius: 18px; border-width: 4px; width: 180px; padding: 8px" rows="1" cols="10"></input>
+            <label for="folders">Select a folder...</label>
+            <select name="folders" id="folders" style="color: #6100FF; font-family: 'Arvo'; border-color: #8F68AE;">
+                <option value=0>To-do</option>
+                <option value=1>Grocery List</option>
+            </select>
+            <button id="deleteFolderButton" style="margin-left: 12px; background-color: transparent; font-size: 28px;">🚮</button>
         </div>
-
-        <button class="purpleButton" id="addNewFolderButton" style="background-color: #A57CC6; margin-left: 5px; margin-right: 10px;">Add✅</button>
-        <button class="purpleButton" id="cancelNewFolderSelection" style="background-color: #C5B0E6;">Cancel🚫</button>
-    </div>
-
-    <div id = "renameFolder" style="display: none; background-color: #ffffff; padding: 15px; border-radius: 18px; border-color: #ffffff; margin-bottom: 30px;">
-        <div class="selectFolder">
-            <label for="newFolderTitle" style="color: #6100FF; margin-left: 12px">Folder name:</label>
-            <!-- <textarea id="renameFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo';" rows="1" cols="10"></textarea> -->
-            <input id="renameFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo'; border-radius: 18px; border-width: 4px; width: 180px; padding: 8px" rows="1" cols="10"></input>
-        </div>
-
-        <button class="purpleButton" id="acceptNewFolderName" style="background-color: #A57CC6;margin-left: 10px; margin-right: 10px;">Rename✅</button>
-        <button class="purpleButton" id="dontAcceptNewFolderName" style="background-color: #C5B0E6;">Cancel🚫</button>
-    </div>
     
-    <div class="newNoteArea" style="margin-top: 20px">
-        <label for="userInput" style="border-color: #8F68AE">What are you thinking of?</label><br>
-        <textarea id="userInput" name="userInput" rows="2" cols="40" style="padding-bottom: 23; color: black; font-family: 'Arvo';"></textarea><br>
+        <div class="buttonContainer" style="margin-top: 20px">
+            <button class="purpleButton" id="newFolderButton">New Folder</button>
+            <button class="purpleButton" id="changeNameButton">Rename Folder</button>
+        </div>
+    
+        <div id = "newFolderName" style="display: none; background-color: #ffffff; padding: 15px; border-radius: 18px; border-color: #ffffff; margin-bottom: 30px;">
+            <div class="selectFolder">
+                <label for="newFolderTitle" style="color: #6100FF; margin-left: 12px">Folder name:</label>
+                <!-- <textarea id="newFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo';" rows="1" cols="10"></textarea> -->
+                <input id="newFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo'; border-radius: 18px; border-width: 4px; width: 180px; padding: 8px" rows="1" cols="10"></input>
+            </div>
+    
+            <button class="purpleButton" id="addNewFolderButton" style="background-color: #A57CC6; margin-left: 5px; margin-right: 10px;">Add✅</button>
+            <button class="purpleButton" id="cancelNewFolderSelection" style="background-color: #C5B0E6;">Cancel🚫</button>
+        </div>
+    
+        <div id = "renameFolder" style="display: none; background-color: #ffffff; padding: 15px; border-radius: 18px; border-color: #ffffff; margin-bottom: 30px;">
+            <div class="selectFolder">
+                <label for="newFolderTitle" style="color: #6100FF; margin-left: 12px">Folder name:</label>
+                <!-- <textarea id="renameFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo';" rows="1" cols="10"></textarea> -->
+                <input id="renameFolderTitle" name="userInput" style="margin-bottom: 0px; border-color: #C5B0E6; color: #6100FF; font-family: 'Arvo'; border-radius: 18px; border-width: 4px; width: 180px; padding: 8px" rows="1" cols="10"></input>
+            </div>
+    
+            <button class="purpleButton" id="acceptNewFolderName" style="background-color: #A57CC6;margin-left: 10px; margin-right: 10px;">Rename✅</button>
+            <button class="purpleButton" id="dontAcceptNewFolderName" style="background-color: #C5B0E6;">Cancel🚫</button>
+        </div>
+        
+        <div class="newNoteArea" style="margin-top: 20px">
+            <label for="userInput" style="border-color: #8F68AE">What are you thinking of?🤔</label><br>
+            <textarea id="userInput" name="userInput" rows="2" cols="40" style="padding-bottom: 23; color: black; font-family: 'Arvo';"></textarea><br>
+        </div>
+    
+        <button class="purpleButton" id="saveInput" style="margin-bottom: 20px">Save</button>
     </div>
-
-    <button class="purpleButton" id="saveInput" style="margin-bottom: 20px">Save</button>
 
     
     <div class="noteArea">
@@ -62,7 +65,6 @@
     </div>
     
     
-    <p id="noteText"></p>
 
     
 </body>

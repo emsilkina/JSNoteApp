@@ -7,8 +7,9 @@ function Note () {
 //ADD BUTTON TO DELETE THE FOLDER!
 let str = "";
 
-const noteTextLimit = 80;
+const noteTextLimit = 120;
 const folderNameTextLimit = 20;
+
 
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
@@ -62,10 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-
-        
-
-        //alert user if the name is the same as the old name
     });
 
     document.getElementById("dontAcceptNewFolderName").addEventListener("click", function() {
@@ -92,6 +89,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
+    document.getElementById("deleteFolderButton").addEventListener("click", function() {
+        let selectedFolders = document.getElementById("folders");
+        let selectedFolderIndex = selectedFolders.selectedIndex;
+       
+        
+        if (folders.length != 1) {
+            let confirmDeletion = confirm("Are you sure you want to delete this folder?");
+            if(confirmDeletion) {
+                folders.splice(selectedFolderIndex, 1);
+                selectedFolders.remove(selectedFolderIndex);
+            }
+        } else {
+            alert("Error: can't delete folder. There must be at least one folder remaining.")
+        } 
+    }); 
+
     document.getElementById("addNewFolderButton").addEventListener("click", function() {
         let newFolderTitle = document.getElementById("newFolderTitle").value;
 
@@ -112,10 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const newFolderInput = document.getElementById("newFolderName");
                 newFolderInput.style.display = "none";
         
-                const newFolderButton = document.getElementById("newFolderButton");
-                const changeNameButton = document.getElementById("changeNameButton");
-                newFolderButton.style.display = "block";
-                changeNameButton.style.display = "block";
+                dontDisplayNewFolderInput();
             } else {
                 alert("Folder name already exists!")
             }
@@ -166,6 +176,7 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         } else {
             //note text area
             note = document.createElement("textarea");
+            // note = document.createElement("input");
             note.value = noteText;
             note.rows = "1";
             note.classList.add("note-textarea");

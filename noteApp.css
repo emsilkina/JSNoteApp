@@ -10,7 +10,7 @@
 
 
 body {
-    background-color: #AA85E7;
+    background-color: #CCB6EE;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,6 @@ button:hover {
 .note-textarea {
     background: transparent; 
     border: none; 
-    /* resize: none;  */
     outline: none; 
     padding: 0;
     font: inherit; 
@@ -84,6 +83,8 @@ button:hover {
     min-width: 320px;
     max-width: 800px;
     margin-right: 10px;
+    width: 100%;
+    resize: none;
 }
 
 .titleHeaderContainer {
@@ -94,12 +95,18 @@ button:hover {
 
 .title {
     font-family: 'ArvoBold', serif;
-    font-size: 40;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .icon {
-    font-size: 60;
     padding: 10px;
+}
+
+.slothIcon {
+    font-size: 60px;
+    margin-left: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bulletPoint{
@@ -149,7 +156,7 @@ button:hover {
 }
 
 .purpleButton {
-    background-color: #6100FF;
+    background-color: #A57CC6;
     font-family: "Arvo", serif;
     color: #ffffff;
     font-size: 15px;
@@ -161,7 +168,7 @@ button:hover {
 }
 
 .purpleButtonSelected {
-    background-color: #380094;
+    background-color: #A57CC6;
     font-family: "Arvo", serif;
     color: #ffffff;
     font-size: 15px;
@@ -170,7 +177,7 @@ button:hover {
     height: 37px;
     padding-left: 20px;
     padding-right: 20px;
-    box-shadow: 0 0 10px #380094;
+    box-shadow: 0 0 10px #A57CC6;
 }
 
 .selectFolder textarea {
@@ -187,12 +194,12 @@ button:hover {
 .noteArea {
     margin-top: 30px;
     border-style: solid;
-    border-color: #6100FF;
+    border-color: #380094;
     border-width: 4px;
     border-radius: 18px;
     border-width: 4px;
     min-width: 450px;
-    min-height: 300px;
+    min-height: 200px;
     background-color: #ffffff;
 }
 
@@ -225,7 +232,7 @@ button:hover {
     resize: none;
     padding-left: 15px;
     padding-top: 8px;
-    vertical-align: middle; /* Ensures alignment */
+    vertical-align: middle;
 }
 
 .newFolderName button {
@@ -235,4 +242,13 @@ button:hover {
 .icon {
     background-color: transparent;
     padding: 5px;
+}
+
+.edittingModeSectionContainer {
+    background-color: #380094;
+    border-radius: 45px;
+    padding: 40px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
 }
