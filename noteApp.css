@@ -154,7 +154,7 @@ button:hover {
 }
 
 .purpleButton {
-    background-color: #A57CC6;
+    background-color: #FF8E3C;
     font-family: "Arvo", serif;
     color: #ffffff;
     font-size: 15px;
@@ -166,7 +166,7 @@ button:hover {
 }
 
 .purpleButtonSelected {
-    background-color: #A57CC6;
+    background-color: #FF6B00;
     font-family: "Arvo", serif;
     color: #ffffff;
     font-size: 15px;
@@ -175,7 +175,7 @@ button:hover {
     height: 37px;
     padding-left: 20px;
     padding-right: 20px;
-    box-shadow: 0 0 10px #A57CC6;
+    box-shadow: 0 0 10px #FF6B00;
 }
 
 .selectFolder textarea {
@@ -192,7 +192,7 @@ button:hover {
 .noteArea {
     margin-top: 30px;
     border-style: solid;
-    border-color: #380094;
+    border-color: #FF8E3C;
     border-width: 4px;
     border-radius: 18px;
     border-width: 4px;
