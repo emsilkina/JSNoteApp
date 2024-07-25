@@ -4,12 +4,9 @@ function Note () {
     this.noteArray = [];
 }
 
-//ADD BUTTON TO DELETE THE FOLDER!
-let str = "";
 
 const noteTextLimit = 120;
 const folderNameTextLimit = 20;
-
 
 document.addEventListener("DOMContentLoaded", function() {
     displayNote(0, []);
@@ -22,10 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("newFolderButton").addEventListener("click", function() {
         displayNewFolderInput();
         dontDisplayRenameFolderInput();
-        // const changeNameButton = document.getElementById("changeNameButton");
-        // const newFolderButton = document.getElementById("newFolderButton");
-        // changeNameButton.style.display = "none";
-        // newFolderButton.style.display = "none";
     });
 
     document.getElementById("changeNameButton").addEventListener("click", function() {
@@ -176,7 +169,6 @@ function displayNote(selectedFolderIndex, edittingNoteIndexes) {
         } else {
             //note text area
             note = document.createElement("textarea");
-            // note = document.createElement("input");
             note.value = noteText;
             note.rows = "1";
             note.classList.add("note-textarea");
