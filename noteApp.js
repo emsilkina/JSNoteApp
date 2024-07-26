@@ -85,17 +85,19 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("deleteFolderButton").addEventListener("click", function() {
         let selectedFolders = document.getElementById("folders");
         let selectedFolderIndex = selectedFolders.selectedIndex;
-       
         
         if (folders.length != 1) {
             let confirmDeletion = confirm("Are you sure you want to delete this folder?");
             if(confirmDeletion) {
                 folders.splice(selectedFolderIndex, 1);
                 selectedFolders.remove(selectedFolderIndex);
+                selectedFolders.selectedIndex = 0;
             }
+            displayNote(selectedFolders.selectedIndex, []);
         } else {
             alert("Error: can't delete folder. There must be at least one folder remaining.")
         } 
+
     }); 
 
     document.getElementById("addNewFolderButton").addEventListener("click", function() {
